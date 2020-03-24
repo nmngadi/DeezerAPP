@@ -1,3 +1,5 @@
+import { NgTemplateOutlet } from '@angular/common'
+
 export interface IArtist {
   id: number;
   name: string;
@@ -13,3 +15,4 @@ export interface IArtist {
   radio: boolean;
   tracklist: string;
 }
+
