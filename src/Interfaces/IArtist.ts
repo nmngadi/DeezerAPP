@@ -1,5 +1,5 @@
 export interface IArtist {
-  id: Number;
+  id: number;
   name: string;
   link: string;
   share: string;
@@ -8,7 +8,7 @@ export interface IArtist {
   picture_medium: string;
   picture_big: string;
   picture_xl: string;
-  nb_album: Number;
+  nb_album: number;
   nb_fan: Number;
   radio: boolean;
   tracklist: string;
