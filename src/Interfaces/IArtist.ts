@@ -1,5 +1,3 @@
-import { NgTemplateOutlet } from '@angular/common'
-
 export interface IArtist {
   id: number;
   name: string;
@@ -11,8 +9,7 @@ export interface IArtist {
   picture_big: string;
   picture_xl: string;
   nb_album: number;
-  nb_fan: Number;
+  nb_fan: number;
   radio: boolean;
   tracklist: string;
 }
-

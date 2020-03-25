@@ -1,16 +1,16 @@
-import { Component, OnInit } from "@angular/core";
-import { IArtist } from "src/Interfaces/IArtist";
-import { ArtistService } from "src/services/artist.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { IAlbum } from "src/Interfaces/iAlbum";
-import { forkJoin } from "rxjs";
-import { ITrack } from "src/Interfaces/iTrack";
-import { switchMap } from "rxjs/operators";
+import { Component, OnInit } from '@angular/core';
+import { IArtist } from 'src/Interfaces/IArtist';
+import { ArtistService } from 'src/services/artist.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IAlbum } from 'src/Interfaces/iAlbum';
+import { forkJoin } from 'rxjs';
+import { ITrack } from 'src/Interfaces/iTrack';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: "app-artist-details",
-  templateUrl: "./artist-details.component.html",
-  styleUrls: ["./artist-details.component.css"]
+  selector: 'app-artist-details',
+  templateUrl: './artist-details.component.html',
+  styleUrls: ['./artist-details.component.css']
 })
 export class ArtistDetailsComponent implements OnInit {
   artist: IArtist;
@@ -24,7 +24,7 @@ export class ArtistDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const param = this.route.snapshot.paramMap.get("id");
+    const param = this.route.snapshot.paramMap.get('id');
     if (param) {
       const id = +param;
       this.GetArtistDetails(id);
@@ -47,6 +47,6 @@ export class ArtistDetailsComponent implements OnInit {
       });
   }
   onBack(): void {
-    this.router.navigate(["/artist"]);
+    this.router.navigate(['/artist']);
   }
 }

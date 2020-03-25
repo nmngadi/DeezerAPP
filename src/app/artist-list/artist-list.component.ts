@@ -4,19 +4,19 @@ import {
   Input,
   SimpleChanges,
   OnChanges
-} from "@angular/core";
-import { IArtist } from "src/Interfaces/IArtist";
-import { ArtistService } from "src/services/artist.service";
-import { take } from "rxjs/operators";
+} from '@angular/core';
+import { IArtist } from 'src/Interfaces/IArtist';
+import { ArtistService } from 'src/services/artist.service';
+import { take } from 'rxjs/operators';
 @Component({
-  selector: "app-artist-list",
-  templateUrl: "./artist-list.component.html",
-  styleUrls: ["./artist-list.component.css"]
+  selector: 'app-artist-list',
+  templateUrl: './artist-list.component.html',
+  styleUrls: ['./artist-list.component.css']
 })
 export class ArtistListComponent {
-  imageWidth: number = 50;
-  ImageMargin: number = 2;
-  errorMessage = "";
+  imageWidth = 50;
+  ImageMargin = 2;
+  errorMessage = '';
   artists: IArtist[] = [];
 
   searchstring: string;
