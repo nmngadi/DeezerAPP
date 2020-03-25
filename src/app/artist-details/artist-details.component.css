@@ -65,31 +65,39 @@ a:hover {
 
 div.card-header2 {
   font-size: large;
- }
+}
 
- div.card2 {
-   margin-top: 10px
- }
- .table {
-  margin-top: 10px
+div.card2 {
+  margin-top: 10px;
+}
+.table {
+  margin-top: 10px;
 }
 .block-21 .blog-img {
   display: block;
   height: 80px;
-  width: 80px; }
+  width: 80px;
+}
 
 .block-21 .text {
-  width: calc(100% - 100px); }
-  .block-21 .text .heading {
-    font-size: 16px; }
-    .block-21 .text .heading a {
-      color: #000000; }
-      .block-21 .text .heading a:hover, .block-21 .text .heading a:active, .block-21 .text .heading a:focus {
-        color: #1eafed; }
-  .block-21 .text .meta > div {
-    display: inline-block;
-    font-size: 12px;
-    margin-right: 5px; }
-    .block-21 .text .meta > div a {
-      color: gray; }
-
+  width: calc(100% - 100px);
+}
+.block-21 .text .heading {
+  font-size: 16px;
+}
+.block-21 .text .heading a {
+  color: #000000;
+}
+.block-21 .text .heading a:hover,
+.block-21 .text .heading a:active,
+.block-21 .text .heading a:focus {
+  color: #1eafed;
+}
+.block-21 .text .meta > div {
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 5px;
+}
+.block-21 .text .meta > div a {
+  color: gray;
+}
