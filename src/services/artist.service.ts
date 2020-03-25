@@ -55,7 +55,7 @@ export class ArtistService {
   }
 
   getAlbums(artistId: Number): Observable<IAlbum[]> {
-    this.albumsUrl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artistId}/albums`;
+    this.albumsUrl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artistId}/albums&offset=0&limit=5`;
     return this.http.get(this.albumsUrl).pipe(
       map((res: any) => <IAlbum[]>res.data),
       catchError(this.handleError)
