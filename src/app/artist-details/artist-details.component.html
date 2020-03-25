@@ -1,0 +1,92 @@
+<div class="card2" *ngIf="artist">
+  <div class="card-header2">
+    {{ "Deezer Profile" + ": " + artist.name }}
+  </div>
+
+  <div class="card-body">
+    <div class="block-21 mb-4 d-flex" *ngIf="artist">
+      <a class="blog-img mr-4"></a>
+      <img
+        class="center-block img-responsive"
+        [style.width.px]="200"
+        [style.margin.px]="2"
+        [src]="artist.picture_medium"
+        [title]="artist.name"
+      />
+      <div class="text">
+        <h3 class="heading">
+          <a>{{ artist.name }}</a>
+        </h3>
+        <div class="meta">
+          <div>
+            <a
+              ><span>Number of Fans:</span>
+              {{ artist.nb_fan }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <ul class="list-group" *ngFor="let tracks of tracks">
+        <li class="list-group-item">
+          {{ tracks[tracks] }} {{ tracks.title }} , {{ tracks.duration }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button
+      class="btn btn-outline-secondary"
+      (click)="onBack()"
+      style="width:80px"
+    >
+      <i class="fa fa-chevron-left"></i> Back
+    </button>
+  </div>
+
+  <div>
+    <h1><span label label-default style="text-align: center;">New</span></h1>
+  </div>
+  <div class="row">
+    <div class="column" *ngFor="let album of album">
+      <div class="card">
+        <img [src]="album.cover_big" [title]="album.label" style="width:100%" />
+        <p style="font-weight: bolder;">{{ album.duration }}</p>
+        <p class="title">Total Number of Fans</p>
+        <p>{{ artist.nb_fan }}</p>
+
+        <p><button>View Album Details</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-21 mb-4 d-flex" *ngIf="artist">
+    <a class="blog-img mr-4"></a>
+    <img
+      class="center-block img-responsive"
+      [style.width.px]="200"
+      [style.margin.px]="2"
+      [src]="artist.picture_medium"
+      [title]="artist.name"
+    />
+    <div class="text">
+      <h3 class="heading">
+        <a href="#">Even the all-powerful Pointing has no control</a>
+      </h3>
+      <div class="meta">
+        <div>
+          <a href="#"><span class="icon-calendar"></span> June 28, 2019</a>
+        </div>
+        <div>
+          <a href="#"><span class="icon-person"></span> Dave Lewis</a>
+        </div>
+        <div>
+          <a href="#"><span class="icon-chat"></span> 19</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
