@@ -21,7 +21,7 @@
         />
         <p style="font-weight: bolder;">{{ artist.name }}</p>
         <p class="title">Total Number of Fans</p>
-        <p>{{ artist.nb_fan }}</p>
+        <p>{{ artist.nb_fan | number }}</p>
 
         <p>
           <button routerLink="/artist/{{ artist.id }}">
