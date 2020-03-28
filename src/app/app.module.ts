@@ -11,13 +11,14 @@ import { ArtistDetailsComponent } from './artist-details/artist-details.componen
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ConvertToDurationPipe } from './convert-to-duration.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArtistListComponent,
-    //  WelcomeComponent,
-    ArtistDetailsComponent
+    ArtistDetailsComponent,
+    ConvertToDurationPipe
   ],
   imports: [
     BrowserModule,
