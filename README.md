@@ -1,5 +1,5 @@
 # DeezerAPP
-
+[![CircleCI](https://circleci.com/<VCS>/<DVTGrad>/<DeezerAPP>.svg?style=svg&circle-token=<35ebf15705bffdda090c6dd071509853a318e2b3>)](<LINK>)
 
 ### Application Link:
 https://deezerapp-acb2a.firebaseapp.com
