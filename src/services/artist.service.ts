@@ -1,19 +1,17 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { IArtist } from "src/Interfaces/IArtist";
-import { Observable, throwError, timer } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { IArtist } from 'src/Interfaces/IArtist';
+import { Observable, throwError, timer } from 'rxjs';
 import {
   catchError,
-  tap,
   map,
-  distinctUntilChanged,
-  retry
-} from "rxjs/operators";
-import { IAlbum } from "src/Interfaces/iAlbum";
-import { ITrack } from "src/Interfaces/iTrack";
+
+} from 'rxjs/operators';
+import { IAlbum } from 'src/Interfaces/iAlbum';
+import { ITrack } from 'src/Interfaces/iTrack';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ArtistService {
   private ArtistListUrl: string;
@@ -24,9 +22,9 @@ export class ArtistService {
 
   getArtistList(str: string): Observable<IArtist[]> {
     this.ArtistListUrl =
-      "https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/artist?q=" +
+      'https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/artist?q=' +
       str +
-      "&offset=0&limit=10&type=${artist}";
+      '&offset=0&limit=10&type=${artist}';
     return this.http.get(this.ArtistListUrl).pipe(
       map((res: any) => res.data as IArtist[]),
       catchError(this.handleError)
@@ -42,9 +40,9 @@ export class ArtistService {
   }
   getTopTracks(id: number): Observable<ITrack[]> {
     this.trackUrl =
-      "https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/" +
+      'https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/' +
       id +
-      "/top?limit=5";
+      '/top?limit=5';
     return this.http.get(this.trackUrl).pipe(
       map((res: any) => res.data as ITrack[]),
       catchError(this.handleError)
@@ -60,7 +58,7 @@ export class ArtistService {
   }
 
   private handleError(err: HttpErrorResponse) {
-    let errorMessage = "";
+    let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
       errorMessage = `An error occurred: ${err.error.message}`;
     } else {
