@@ -12,9 +12,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ConvertToDurationPipe } from './convert-to-duration.pipe';
 import { ShortNumberPipe } from './short-number.pipe';
-// import { WelcomeComponent } from './welcome/welcome.component';
-// import { ArtistDetailsGuard } from './artist-details/artist-details.guard';
-// import { ConvertToYearPipe } from './convert-to-year.pipe';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { ArtistDetailsGuard } from './artist-details/artist-details.guard';
+import { ConvertToYearPipe } from './convert-to-year.pipe';
 
 @NgModule({
   declarations: [
@@ -22,9 +22,9 @@ import { ShortNumberPipe } from './short-number.pipe';
     ArtistListComponent,
     ArtistDetailsComponent,
     ConvertToDurationPipe,
-    ShortNumberPipe
-    // WelcomeComponent
-    //  ConvertToYearPipe
+    ShortNumberPipe,
+    WelcomeComponent,
+     ConvertToYearPipe
   ],
   imports: [
     BrowserModule,
@@ -36,11 +36,11 @@ import { ShortNumberPipe } from './short-number.pipe';
       { path: 'artist', component: ArtistListComponent },
       {
         path: 'artist/:id',
-        //   canActivate: [ArtistDetailsGuard],
+       canActivate: [ArtistDetailsGuard],
         component: ArtistDetailsComponent
       },
 
-      //   { path: 'welcome', component: WelcomeComponent },
+       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
