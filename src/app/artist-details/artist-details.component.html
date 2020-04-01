@@ -1,60 +1,75 @@
-<div class="card2" *ngIf="artist">
+<div class="container" *ngIf="artist">
   <div class="card-header2">
     <div>
       <h1>
-        <span label label-default style="align-content: center;">ARTIST PROFILE</span>
+        <span label label-default style="align-content: center;"
+          >ARTIST PROFILE</span
+        >
       </h1>
     </div>
   </div>
 
   <div class="card-body">
     <div class="block-21 mb-4 d-flex" *ngIf="artist">
-      <a class="blog-img mr-4"></a>
-      <img class="center-block img-responsive" [style.width.px]="200" [style.margin.px]="2"
-        [src]="artist.picture_medium" [title]="artist.name" />
+      <img
+        [src]="artist.picture_medium"
+        [title]="artist.name"
+        class="blog-img mr-4"
+      />
       <div class="text">
         <h3 class="heading">
           <a>{{ artist.name }}</a>
         </h3>
         <div class="meta">
           <div>
-            <a><span>Number of Fans:</span>
-              {{ artist.nb_fan }}
+            <a
+              ><span>Number of Fans:</span>
+              {{ artist.nb_fan | shortNumber }}
             </a>
           </div>
         </div>
       </div>
     </div>
-    <span label label-default style="align-content: center;">ARTIST TOP TRACKS</span>
-    <div class="row">
-      <ul class="list-group" *ngFor="let tracks of tracks">
-        <li class="list-group-item">
-          {{ tracks[tracks] }} {{ tracks.title }} , {{ tracks.duration }}
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div>
-    <h1>
-      <span label label-default style="align-content: center;">ALBUMS</span>
-    </h1>
-  </div>
-  <div class="row">
-    <div class="column" *ngFor="let album of album">
-      <div class="card">
-        <img [src]="album.cover_big" [title]="album.label" style="width:100%" />
-        <p style="font-weight: bolder;">{{ album.duration }}</p>
-        <p class="title">Total Number of Fans</p>
-        <p>{{ artist.nb_fan }}</p>
-
-        <p><button>View Album Details</button></p>
-      </div>
-    </div>
   </div>
 </div>
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+  <h1>Top Tracks</h1>
+  <div class="item" *ngFor="let track of tracks">
+    {{ track.title }} || {{ track.duration | convertToDuration }}
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<div>
+  <h1>ALBUMS</h1>
+</div>
+<div class="row">
+  <div class="column" *ngFor="let album of album">
+    <div class="card">
+      <img [src]="album.cover_big" [title]="album.label" style="width:100%" />
+      <p class="title">Album Title</p>
+      <p>{{ album.title }}</p>
+      <p class="title">Total Number of Fans</p>
+      <p>{{ album.fans | shortNumber }}</p>
+      <p class="title">Release Year</p>
+      <p>{{ album.release_date | convertToYear }}</p>
+    </div>
+    <br />
+  </div>
+</div>
+
 <div class="card-footer">
-  <button class="btn btn-outline-secondary" (click)="onBack()" style="width:80px">
+  <button
+    class="btn btn-outline-secondary"
+    (click)="onBack()"
+    style="width:80px"
+  >
     <i class="fa fa-chevron-left"></i> Back
   </button>
 </div>
