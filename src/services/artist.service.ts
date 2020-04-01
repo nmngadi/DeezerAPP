@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IArtist } from 'src/Interfaces/IArtist';
-import { Observable, throwError, timer } from 'rxjs';
-import {
-  catchError,
-  map,
-
-} from 'rxjs/operators';
+import { Observable, throwError} from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { IAlbum } from 'src/Interfaces/iAlbum';
 import { ITrack } from 'src/Interfaces/iTrack';
 
@@ -27,6 +23,7 @@ export class ArtistService {
       '&offset=0&limit=10&type=${artist}';
     return this.http.get(this.ArtistListUrl).pipe(
       map((res: any) => res.data as IArtist[]),
+
       catchError(this.handleError)
     );
   }
@@ -50,7 +47,7 @@ export class ArtistService {
   }
 
   getAlbums(artistId: number): Observable<IAlbum[]> {
-    this.albumsUrl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artistId}/albums&offset=0&limit=5`;
+    this.albumsUrl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artistId}/albums&offset=0`;
     return this.http.get(this.albumsUrl).pipe(
       map((res: any) => res.data as IAlbum[]),
       catchError(this.handleError)
@@ -68,3 +65,5 @@ export class ArtistService {
     return throwError(errorMessage);
   }
 }
+
+
