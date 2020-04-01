@@ -1,41 +1,19 @@
-input[type="text"] {
-  width: 130px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url("~/src/assets/search--v2.png");
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-input[type="text"]:focus {
-  width: 100%;
-}
-
-/* Float four columns side by side */
 .column {
   float: left;
   width: 25%;
   padding: 0 10px;
 }
 
-/* Remove extra left and right margins, due to padding in columns */
 .row {
   margin: 0 -5px;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-/* Responsive columns - one column layout (vertical) on small screens */
+
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
@@ -79,4 +57,11 @@ a {
 button:hover,
 a:hover {
   opacity: 0.7;
+}
+
+img {
+  width: 100%;
+}
+p {
+  font-weight: bolder;
 }
