@@ -12,8 +12,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ConvertToDurationPipe } from './convert-to-duration.pipe';
 import { ShortNumberPipe } from './short-number.pipe';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ArtistDetailsGuard } from './artist-details/artist-details.guard';
+// import { WelcomeComponent } from './welcome/welcome.component';
+// import { ArtistDetailsGuard } from './artist-details/artist-details.guard';
 // import { ConvertToYearPipe } from './convert-to-year.pipe';
 
 @NgModule({
@@ -22,8 +22,8 @@ import { ArtistDetailsGuard } from './artist-details/artist-details.guard';
     ArtistListComponent,
     ArtistDetailsComponent,
     ConvertToDurationPipe,
-    ShortNumberPipe,
-    WelcomeComponent
+    ShortNumberPipe
+    // WelcomeComponent
     //  ConvertToYearPipe
   ],
   imports: [
