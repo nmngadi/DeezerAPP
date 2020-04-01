@@ -13,7 +13,7 @@ import { ITrack } from 'src/Interfaces/iTrack';
 })
 export class ArtistDetailsComponent implements OnInit {
   artist: IArtist;
-  album: IAlbum[] = [];
+  albums: IAlbum[] = [];
   tracks: ITrack[] = [];
   errorMessage: string;
   constructor(
@@ -39,7 +39,7 @@ export class ArtistDetailsComponent implements OnInit {
       .subscribe({
         next: Results => {
           (this.artist = Results[0]),
-            (this.album = Results[1]),
+            (this.albums = Results[1]),
             (this.tracks = Results[2]);
         },
         error: err => (this.errorMessage = err)
