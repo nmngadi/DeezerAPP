@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IAlbum } from 'src/Interfaces/iAlbum';
 import { forkJoin } from 'rxjs';
 import { ITrack } from 'src/Interfaces/iTrack';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-artist-details',
