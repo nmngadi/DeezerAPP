@@ -15,7 +15,21 @@ import { ShortNumberPipe } from './short-number.pipe';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ArtistDetailsGuard } from './artist-details/artist-details.guard';
 import { ConvertToYearPipe } from './convert-to-year.pipe';
+import { EffectsModule } from '@ngrx/effects';
+import { ArtistEffects } from './store/effects';
+import { StoreModule, ActionReducer, Store } from '@ngrx/store';
+import { reducers } from './store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ArtistListReducer } from './store/reducer';
+// console.log all actions
 
+export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
+  return (state, action) => {
+    console.log('state', state);
+    console.log('action', action);
+    return reducer(state, action);
+  };
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +38,7 @@ import { ConvertToYearPipe } from './convert-to-year.pipe';
     ConvertToDurationPipe,
     ShortNumberPipe,
     WelcomeComponent,
-     ConvertToYearPipe
+    ConvertToYearPipe
   ],
   imports: [
     BrowserModule,
@@ -32,15 +46,23 @@ import { ConvertToYearPipe } from './convert-to-year.pipe';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+      //  logOnly: environment.production
+    }),
+
+    StoreModule.forRoot(reducers, {}),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([ArtistEffects]),
     RouterModule.forRoot([
       { path: 'artist', component: ArtistListComponent },
       {
         path: 'artist/:id',
-       canActivate: [ArtistDetailsGuard],
+        canActivate: [ArtistDetailsGuard],
         component: ArtistDetailsComponent
       },
 
-       { path: 'welcome', component: WelcomeComponent },
+      { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
