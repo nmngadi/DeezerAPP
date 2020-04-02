@@ -47,12 +47,12 @@ export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
     HttpClientModule,
     FormsModule,
     StoreDevtoolsModule.instrument({
-      maxAge: 25
-      //  logOnly: environment.production
+      maxAge: 25,
+      logOnly: environment.production
     }),
 
     StoreModule.forRoot(reducers, {}),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([ArtistEffects]),
     RouterModule.forRoot([
       { path: 'artist', component: ArtistListComponent },
@@ -66,7 +66,7 @@ export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
-    ServiceWorkerModule.register('ngsw-worker.js', {
+    ServiceWorkerModule.register('./ngsw-worker.js', {
       enabled: environment.production
     })
   ],
