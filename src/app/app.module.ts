@@ -21,6 +21,7 @@ import { StoreModule, ActionReducer, Store } from '@ngrx/store';
 import { reducers } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ArtistListReducer } from './store/reducer';
+import { LoaderComponent } from './loader/loader.component';
 // console.log all actions
 
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -38,7 +39,8 @@ export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
     ConvertToDurationPipe,
     ShortNumberPipe,
     WelcomeComponent,
-    ConvertToYearPipe
+    ConvertToYearPipe,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
