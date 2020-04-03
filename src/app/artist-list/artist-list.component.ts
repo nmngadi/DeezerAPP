@@ -14,6 +14,7 @@ import { getListItems, serachArtist } from '../store/actions';
 export class ArtistListComponent implements OnInit {
   errorMessage = '';
   artists: IArtist[] = [];
+  loading: boolean;
   ArtistListItems$: Observable<IArtist[]>;
   searchString: string;
 
@@ -24,6 +25,13 @@ export class ArtistListComponent implements OnInit {
   ngOnInit(): void {
     this.ArtistListStore.dispatch(getListItems());
     this.ArtistListItems$ = this.ArtistListStore.pipe(select(selectListItems));
+  }
+  myFunction() {
+    {
+    }
+  }
+  onKey(event: any) {
+    this.loading = true;
   }
 
   searchArtist() {

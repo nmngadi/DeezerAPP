@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IAlbum } from 'src/Interfaces/iAlbum';
 import { forkJoin } from 'rxjs';
 import { ITrack } from 'src/Interfaces/iTrack';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-artist-details',
@@ -15,6 +16,7 @@ export class ArtistDetailsComponent implements OnInit {
   artist: IArtist;
   albums: IAlbum[] = [];
   tracks: ITrack[] = [];
+  loading: boolean;
   errorMessage: string;
   constructor(
     private artistService: ArtistService,
@@ -27,6 +29,7 @@ export class ArtistDetailsComponent implements OnInit {
     if (param) {
       const id = +param;
       this.GetArtistDetails(id);
+      this.loading = true;
     }
   }
   GetArtistDetails(id: number) {
@@ -35,12 +38,13 @@ export class ArtistDetailsComponent implements OnInit {
       this.artistService.getAlbums(id),
       this.artistService.getTopTracks(id)
     ])
-      .pipe()
+      .pipe(debounceTime(5000))
       .subscribe({
         next: Results => {
           (this.artist = Results[0]),
             (this.albums = Results[1]),
-            (this.tracks = Results[2]);
+            (this.tracks = Results[2]),
+            (this.loading = false);
         },
         error: err => (this.errorMessage = err)
       });
