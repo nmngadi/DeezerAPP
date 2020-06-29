@@ -1,4 +1,4 @@
-#intro {
+.intro {
   background: url("https://panoramix-radio-station.com/wp-content/uploads/2019/02/logo-deezer-animation.gif")
     no-repeat center;
   -webkit-background-size: cover;
@@ -7,4 +7,13 @@
   background-size: cover;
   background-color: black;
   background-size: 1300px 400px;
+}
+@media only screen and (max-width: 596px) {
+  .intro {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-size: 500px 596px;
+  }
 }
