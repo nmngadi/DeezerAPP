@@ -1,8 +1,13 @@
 import { ConvertToDurationPipe } from './convert-to-duration.pipe';
 
 describe('ConvertToDurationPipe', () => {
-  it('create an instance', () => {
+  it('Convert to duration', () => {
+    // Arrange
     const pipe = new ConvertToDurationPipe();
-    expect(pipe).toBeTruthy();
+    const expectedValue = '5:57';
+    // Act
+    const actualValue = pipe.transform(357);
+   // Assert
+    expect(actualValue).toBe(expectedValue);
   });
 });
