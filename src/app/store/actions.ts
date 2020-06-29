@@ -6,3 +6,7 @@ export const serachArtist = createAction(
   '[Search Page] SearchArtist',
   props<{ items: IArtist[] }>()
 );
+export const serachParameter = createAction(
+  '[Search Parameter] SearchArtist',
+  props<{ items: string }>()
+);

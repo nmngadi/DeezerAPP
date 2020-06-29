@@ -1,21 +1,29 @@
-import {Action, createFeatureSelector, createReducer, createSelector, on} from '@ngrx/store';
+import {
+  Action,
+  createFeatureSelector,
+  createReducer,
+  createSelector,
+  on
+} from '@ngrx/store';
 import { IArtist } from 'src/Interfaces/IArtist';
-import { serachArtist } from './actions';
+import { serachArtist, serachParameter } from './actions';
 
 export interface ArtistState {
   isLoading: boolean;
-  ArtistListItems: IArtist [];
+  ArtistListItems: IArtist[];
+  SearchParameter: [];
 }
 
 export const initialState: ArtistState = {
   isLoading: false,
-  ArtistListItems: []
+  ArtistListItems: [],
+  SearchParameter: []
 };
 
 export const ArtistListReducer = createReducer(
   initialState,
-  on(serachArtist, state => ({...state, isLoading: true})),
-
+  on(serachArtist, state => ({ ...state, isLoading: true })),
+  on(serachParameter, state => ({ ...state, isLoading: true }))
 );
 
 // Export the reducers to the module for use in app.module.ts
@@ -26,7 +34,9 @@ export function reducer(state: ArtistState | undefined, action: Action) {
 // Selectors
 // Provide the view into the pieces of the state required for the view
 
-export const selectFeature = createFeatureSelector<any, ArtistState>('artistList');
+export const selectFeature = createFeatureSelector<any, ArtistState>(
+  'artistList'
+);
 
 export const selectIsLoading = createSelector(
   selectFeature,
