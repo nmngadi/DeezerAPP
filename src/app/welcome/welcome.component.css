@@ -1,29 +1,19 @@
-
-body, html {
-  height: 100%;
-}
-
-.hero-image {
-
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  margin-left: 20%;
-  margin-right: 20%;
-
-  height: 10%;
-align-content: center;
-
-  background-position: center;
-  background-repeat: no-repeat;
+.intro {
+  background: url("https://panoramix-radio-station.com/wp-content/uploads/2019/02/logo-deezer-animation.gif")
+    no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  position: relative;
+  background-color: black;
+  background-size: 1300px 400px;
 }
+@media only screen and (max-width: 596px) {
+  .intro {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  float: left;
+    background-size: 500px 596px;
+  }
 }

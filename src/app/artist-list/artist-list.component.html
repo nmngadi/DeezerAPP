@@ -1,31 +1,37 @@
 <div class="card-body">
   <div class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-    <i class="fas fa-search" aria-hidden="true"></i>
+    <i class="fa fa-search" aria-hidden="true"></i>
     <input
       class="form-control form-control-sm ml-3 w-75"
-      type="text"
+      type="search"
       [(ngModel)]="searchString"
       (keyup)="searchArtist()"
       placeholder="Search for artist"
       aria-label="Search"
+      (input)="onKey($event)"
     />
   </div>
   <br />
   <br />
-  <div class="row">
-    <div class="column" *ngFor="let artist of artists">
-      <div class="card">
-        <img [src]="artist.picture_big" [title]="artist.name" />
-        <p>{{ artist.name }}</p>
-        <p class="title">Total Number of Fans</p>
-        <p>{{ artist.nb_fan | shortNumber }}</p>
+  <div *ngIf="loading && artists.length == 0; else loaded">
+  <app-loader></app-loader>
+  </div>
+  <ng-template #loaded>
+    <div class="row">
+      <div class="column" *ngFor="let artist of artists">
+        <div class="card">
+          <img [src]="artist.picture_big" [title]="artist.name" />
+          <p>{{ artist.name }}</p>
+          <p class="title">Total Number of Fans</p>
+          <p>{{ artist.nb_fan | shortNumber }}</p>
 
-        <p>
-          <button routerLink="/artist/{{ artist.id }}">
-            View Artist Details
-          </button>
-        </p>
+          <p>
+            <button routerLink="/artist/{{ artist.id }}">
+              View Artist Details
+            </button>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-template>
 </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IArtist } from 'src/Interfaces/IArtist';
-import { Observable, throwError} from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { IAlbum } from 'src/Interfaces/iAlbum';
 import { ITrack } from 'src/Interfaces/iTrack';
@@ -14,7 +14,7 @@ export class ArtistService {
   private artistUrl: string;
   private albumsUrl: string;
   private trackUrl: string;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getArtistList(str: string): Observable<IArtist[]> {
     this.ArtistListUrl =
@@ -35,6 +35,7 @@ export class ArtistService {
       catchError(this.handleError)
     );
   }
+
   getTopTracks(id: number): Observable<ITrack[]> {
     this.trackUrl =
       'https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/' +
@@ -65,5 +66,3 @@ export class ArtistService {
     return throwError(errorMessage);
   }
 }
-
-

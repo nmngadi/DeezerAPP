@@ -1,69 +1,73 @@
-<div class="container" *ngIf="artist">
-  <div class="card-header2">
-    <div>
-      <h1>
-        <span label label-default style="align-content: center;"
-          >ARTIST PROFILE</span
-        >
-      </h1>
+<div *ngIf="loading; else loaded">
+  <app-loader></app-loader>
+</div>
+<ng-template #loaded>
+  <div class="container" *ngIf="artist">
+    <div class="card-header2">
+      <div>
+        <h1>
+          <span label label-default style="align-content: center;"
+            >ARTIST PROFILE</span
+          >
+        </h1>
+      </div>
     </div>
-  </div>
 
-  <div class="card-body">
-    <div class=" mb-4 d-flex" *ngIf="artist">
-      <img
-        [src]="artist.picture_medium"
-        [title]="artist.name"
-        class="blog-img mr-4"
-      />
-      <div class="text">
-        <h3 class="heading">
-          <a>{{ artist.name }}</a>
-        </h3>
-        <div class="meta">
-          <div>
-            <a
-              ><span>Number of Fans:</span>
-              {{ artist.nb_fan | shortNumber }}
-            </a>
+    <div class="card-body">
+      <div class=" mb-4 d-flex" *ngIf="artist">
+        <img
+          [src]="artist.picture_medium"
+          [title]="artist.name"
+          class="blog-img mr-4"
+        />
+        <div class="text">
+          <h3 class="heading">
+            <a>{{ artist.name }}</a>
+          </h3>
+          <div class="meta">
+            <div>
+              <a
+                ><span>Number of Fans:</span>
+                {{ artist.nb_fan | shortNumber }}
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<br />
-<br />
-<br />
-<br />
-<div class="container">
-  <h1>Top Tracks</h1>
-  <div class="item" *ngFor="let track of tracks">
-    {{ track.title }} || {{ track.duration | convertToDuration }}
-  </div>
-</div>
-
-<br />
-<br />
-<br />
-<div>
-  <h1>ALBUMS</h1>
-</div>
-<div class="row">
-  <div class="column" *ngFor="let album of albums">
-    <div class="card">
-      <img [src]="album.cover_big" [title]="album.label"  />
-      <p class="title">Album Title</p>
-      <p>{{ album.title }}</p>
-      <p class="title">Total Number of Fans</p>
-      <p>{{ album.fans | shortNumber }}</p>
-      <p class="title">Release Year</p>
-      <p>{{ album.release_date | convertToYear }}</p>
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="container">
+    <h1>Top Tracks</h1>
+    <div class="item" *ngFor="let track of tracks">
+      {{ track.title }} || {{ track.duration | convertToDuration }}
     </div>
-    <br />
   </div>
-</div>
 
+  <br />
+  <br />
+  <br />
+  <div>
+    <h1>ALBUMS</h1>
+  </div>
+  <div class="row">
+    <div class="column" *ngFor="let album of albums">
+      <div class="card">
+        <img [src]="album.cover_big" [title]="album.label" />
+        <p class="title">Album Title</p>
+        <p>{{ album.title }}</p>
+        <p class="title">Total Number of Fans</p>
+        <p>{{ album.fans | shortNumber }}</p>
+        <p class="title">Release Year</p>
+        <p>{{ album.release_date | convertToYear }}</p>
+      </div>
+      <br />
+    </div>
+  </div>
+</ng-template>
 <div class="card-footer">
   <button
     class="btn btn-outline-secondary"
